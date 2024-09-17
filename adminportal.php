@@ -311,8 +311,8 @@ input[type="date"] {
             <!-- navigation -->
             <nav class="navigation" id="navigation">
                 <a href="index.php" class="back-link">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="contact">CONTACT US</a>
+                <a href="https://nacwo.org.za/about-us/" target="_blank">ABOUT</a>
+                <a href="https://nacwo.org.za/contact-us/" target="_blank">CONTACT US</a>
             </nav>
         </div>
 
