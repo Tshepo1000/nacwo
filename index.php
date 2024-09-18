@@ -7,6 +7,7 @@
     <title>NACWO | Member Onboarding</title>
     <link rel="stylesheet" href="frontend/css/style.css"> <!-- links to style.css -->
     <link rel="stylesheet" href="frontend/css/animations.css"> <!-- links to animation.css -->
+    <link rel="stylesheet" href="frontend/css/responsive.css"> <!-- links to responsive.css -->
     <script src="frontend/js/script.js" defer></script> <!-- links to script.js -->
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +22,15 @@
             
             <!-- navigation -->
             <nav class="navigation" id="navigation">
-                <a href="adminportal.php" class="back-link">Members</a>
+                <a href="adminportal.php" class="back-link">MEMBERS</a>
                 <a href="https://nacwo.org.za/about-us/" target="_blank">ABOUT</a>
                 <a href="https://nacwo.org.za/contact-us/" target="_blank">CONTACT US</a>
             </nav>
 
+            <div class="menu">
+                <img src="images/menu.png" alt="menu" id="menu">
+                <img src="images/close.png" alt="close" id="close">
+            </div>
         </div>
 
         <div id="slogan">
@@ -33,7 +38,7 @@
         </div>
     </header>
 
-    <section class="main-container">
+    <section class="main-container" id="main-container">
         <div class="background-overlay"></div>
         <div class="container">
             <h1>NACWO Member Onboarding Form</h1>
@@ -157,6 +162,27 @@
         submitBtn.addEventListener('click', function(){
             document.location.href = "adminportal.php";
         })
+
+        var menuIcon = document.getElementById("menu");
+        var closeIcon = document.getElementById("close");
+        var navigationBar = document.getElementById("navigation");
+        var sectionBody = document.getElementById("main-container");
+        
+        
+        menuIcon.addEventListener('click', function(){
+            navigationBar.style.display = "flex";
+            menuIcon.style.display = "none";
+            closeIcon.style.display = "block";
+            document.body.style.overflow = 'hidden';
+                
+        });
+           
+        closeIcon.addEventListener('click', function(){
+            navigationBar.style.display = "none";
+            closeIcon.style.display = "none";
+            menuIcon.style.display = "block";
+            document.body.style.overflow = '';
+        });
     </script>
 </body>
 </html>

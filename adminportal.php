@@ -13,295 +13,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NACWO | Admin Portal</title>
     <link rel="stylesheet" href="frontend/css/style.css">
-
-    <style>
-        /* default layout */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Roboto", sans-serif;
-}
-
-/* Table styling */
-/* Table container */
-.table-container {
-    overflow-x: auto; 
-    overflow-y: auto; 
-    height: 400px; 
-    margin: 20px 0; 
-    border: 2px solid white; 
-    padding: 30px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 14px;
-    text-align: left;
-    background-color: white;
-}
-
-th, td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    font-size: 0.9rem;
-}
-
-th {
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Header styling */
-h1 {
-    font-size: 24px;
-    color: white;
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Form styling */
-form {
-    margin: 20px 0;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="date"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.buttons {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.buttons button {
-    width: 120px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 10px;
-    color: white;
-    border: none;
-}
-
-#add {
-    background-color: green;
-}
-
-#delete {
-    background-color: red;
-}
-
-#update {
-    background-color: blue;
-}
-
-#add:hover {
-    background-color: transparent;
-    border: 2px solid green;
-}
-
-#delete:hover {
-    background-color: transparent;
-    border: 2px solid red;
-}
-
-#update:hover {
-    background-color: transparent;
-    border: 2px solid blue;
-}
-
-.container {
-    overflow-y: hidden;
-    position: relative;
-    margin: 0 auto;
-    max-width: 90%;
-}
-
-/* Popup styles */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
-    z-index: 1000; /* Sit on top */
-}
-
-.popup-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px; /* Optional: maximum width */
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.popup-content h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.popup-content label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-.popup-content input[type="text"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.popup-content button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.popup-content button:hover {
-    background-color: #0056b3;
-}
-
-.popup-content p {
-    margin-top: 10px;
-    color: #d9534f; /* Error color */
-    font-weight: bold;
-}
-
-/* Media Queries */
-
-/* Mobile Styles */
-@media (max-width: 600px) {
-    table {
-        font-size: 12px;
-    }
-
-    th, td {
-        padding: 10px;
-    }
-
-    .buttons {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .buttons button {
-        width: 70%;
-    }
-
-    .container {
-        max-width: 100%;
-    }
-
-    .popup-content {
-        width: 90%;
-    }
-}
-
-/* Tablet Styles */
-@media (min-width: 601px) and (max-width: 768px) {
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 15px;
-    }
-
-    .buttons {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .buttons button {
-        width: 100px;
-    }
-
-    .container {
-        max-width: 100%;
-    }
-
-    .popup-content {
-        width: 80%;
-    }
-}
-
-/* Desktop Styles */
-@media (min-width: 769px) {
-    table {
-        width: 80%;
-    }
-
-    th, td {
-        padding: 20px;
-        font-size: 0.9rem;
-    }
-
-    .container {
-        max-width: 80%;
-    }
-}
-
-
-    </style>
-
+    <link rel="stylesheet" href="frontend/css/responsive.css">
 </head>
 <body>
 <header>
@@ -314,13 +26,18 @@ input[type="date"] {
                 <a href="https://nacwo.org.za/about-us/" target="_blank">ABOUT</a>
                 <a href="https://nacwo.org.za/contact-us/" target="_blank">CONTACT US</a>
             </nav>
+
+            <div class="menu">
+                <img src="images/menu.png" alt="menu" id="menu">
+                <img src="images/close.png" alt="close" id="close">
+            </div>
         </div>
 
         <div id="slogan">
             <p>IMPROVING THE LIVELYHOOD OF OTHERS ONE WASH AT A TIME</p>
         </div>
     </header>
-    <section class="main-container">
+    <section class="main-container" id="main-container">
     <h1>NACWO | Memebership Details</h1>
     <div class = "container">
         <div class="buttons">
@@ -365,7 +82,7 @@ input[type="date"] {
                             <td><?php echo $row['cipc']; ?></td>
                             <td><?php echo $row['business_bank_account']; ?></td>
                             <td><?php echo $row['sars_pin']; ?></td>
-                            <td><?php echo $row['ownership_type']; ?></td>
+                            <td><?php echo $row['ownership']; ?></td>
                             <td><?php echo $row['owner_name']; ?></td>
                             <td><?php echo $row['owner_id']; ?></td>
                             <td><?php echo $row['contact_number']; ?></td>
@@ -485,6 +202,26 @@ input[type="date"] {
         };
         xhr.send('id=' + encodeURIComponent(updateId) + '&field=' + encodeURIComponent(updateField) + '&value=' + encodeURIComponent(updateValue));
     }
+
+        var menuIcon = document.getElementById("menu");
+        var closeIcon = document.getElementById("close");
+        var navigationBar = document.getElementById("navigation");
+        var sectionBody = document.getElementById("main-container");
+        
+        
+        menuIcon.addEventListener('click', function(){
+            navigationBar.style.display = "flex";
+            menuIcon.style.display = "none";
+            closeIcon.style.display = "block";
+            document.body.style.overflow = 'hidden';
+        });
+           
+        closeIcon.addEventListener('click', function(){
+            navigationBar.style.display = "none";
+            closeIcon.style.display = "none";
+            menuIcon.style.display = "block";
+            document.body.style.overflow = '';
+        });
 
 </script>
 

@@ -5,6 +5,21 @@
     box-sizing: border-box;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f4f4f4;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+  }
+
 body {
     font-family: "Roboto", sans-serif;
 }
@@ -228,83 +243,202 @@ fieldset {
     border: 2px solid red;
 }
 
-/* Media Queries */
-
-/* Mobile Styles */
-@media (max-width: 600px) {
-    header {
-        height: auto;
-        padding: 10px;
-    }
-
-    .logo_nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .car_wash_business_info,
-    .owner_info,
-    .location_info {
-        width: 90%;
-        padding: 20px;
-    }
-
-    form {
-        grid-template-columns: 1fr;
-    }
-
-    .next_prev button,
-    #prevSub button,
-    #showsSecondForm,
-    #submitsTheForm {
-        width: 50%;
-    }
+/* Table styling */
+/* Table container */
+.table-container {
+    overflow-x: auto; 
+    overflow-y: auto; 
+    height: auto; 
+    margin: 20px 0; 
+    /* border: 2px solid white;  */
+    padding: 30px;
 }
 
-/* Tablet Styles */
-@media (min-width: 601px) and (max-width: 768px) {
-
-    .car_wash_business_info,
-    .owner_info,
-    .location_info {
-        width: 80%;
-        padding: 30px;
-    }
-
-    form {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .next_prev button,
-    #prevSub button,
-    #showsSecondForm,
-    #submitsTheForm {
-        width: 100%;
-    }
+table {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: left;
+    background-color: white;
 }
 
-/* Desktop Styles */
-@media (min-width: 769px) {
-    .car_wash_business_info,
-    .owner_info,
-    .location_info {
-        width: 60%;
-        padding: 40px;
-    }
+thead tr th{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.7rem;
+    
+    background-color: #2596be;
+    color: white;
+    text-align: center;
+    border: none;
+}
 
-    form {
-        grid-template-columns: 1fr 1fr;
-    }
+tbody tr td{
+    font-size: 0.7rem;
+    height: auto;
+    white-space: no-wrap;
+}
 
-    .next_prev button,
-    #prevSub button,
-    #showsSecondForm,
-    #submitsTheForm {
-        width: 100px;
-    }
+/* Header styling */
+h1 {
+    font-size: 24px;
+    color: white;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttons button {
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+#add {
+    background-color: green;
+}
+
+#delete {
+    background-color: red;
+}
+
+#update {
+    background-color: blue;
+}
+
+#add:hover {
+    background-color: transparent;
+    border: 2px solid green;
+}
+
+#delete:hover {
+    background-color: transparent;
+    border: 2px solid red;
+}
+
+#update:hover {
+    background-color: transparent;
+    border: 2px solid blue;
+}
+
+.container {
+    overflow-y: hidden;
+    position: relative;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+/* Popup styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+    z-index: 1000; /* Sit on top */
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Optional: maximum width */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.popup-content input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.popup-content button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+
+.popup-content p {
+    margin-top: 10px;
+    color: #d9534f; /* Error color */
+    font-weight: bold;
+}
+
+.menu{
+    display: none;
 }

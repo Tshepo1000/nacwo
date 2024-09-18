@@ -1,0 +1,230 @@
+/* Media Queries */
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    header {
+        position: relative;
+        display: flex;
+        height: 15vh;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .main-container h1{
+        margin-top: 10%;
+    }
+
+    .navigation{
+        display: none;
+        padding: 30px;
+        text-align: left;
+        flex-direction: column;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: 100%;
+        height: 500px;
+        transform: translate(-50%, 0);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        background-color: white;
+        /* transform: translateY(-20px); */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navigation.show {
+        transform: translateY(0);
+    }
+
+    .navigation a{
+        margin-top: 5%;
+        padding: 2px 0 0 35px;
+    }
+
+    .car_wash_business_info,
+    .owner_info,
+    .location_info {
+        width: 90%;
+        padding: 20px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .next_prev button,
+    #prevSub button,
+    #showsSecondForm,
+    #submitsTheForm {
+        width: 50%;
+    }
+
+    /* admin portal */
+    .popup{
+        top: 25%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .buttons button {
+        width: 70%;
+    }
+
+    .container {
+        max-width: 100%;
+        margin-top: 10%;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+
+    .logo-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #slogan {
+        bottom: -7%;
+        /* top: 0; */
+        padding: 5px 0;
+    }
+
+    #slogan p {
+        font-size: 0.5rem;
+    }
+
+    .menu{
+        display: block;
+        width: 18%;
+        border: 2px solid #17487c;
+        display: flex;
+        place-content: center;
+    }
+
+    .menu img{
+        width: 50%;
+    }
+
+    .menu #close{
+         display: none;
+    }
+    
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 768px) {
+
+    .car_wash_business_info,
+    .owner_info,
+    .location_info {
+        width: 80%;
+        padding: 30px;
+    }
+
+    form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .next_prev button,
+    #prevSub button,
+    #showsSecondForm,
+    #submitsTheForm {
+        width: 100%;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .car_wash_business_info,
+    .owner_info,
+    .location_info {
+        width: 60%;
+        padding: 40px;
+    }
+
+    form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .next_prev button,
+    #prevSub button,
+    #showsSecondForm,
+    #submitsTheForm {
+        width: 100px;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .popup-content {
+        width: 80%;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px)  and (max-width: 992px){
+    table {
+        width: 80%;
+    }
+
+    th, td {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 992px){
+    table {
+        width: 80%;
+    }
+
+    th, td {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        max-width: 80%;
+    }
+
+    .popup {
+        top: 10%;
+    }
+}

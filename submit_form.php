@@ -23,11 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $province = $_POST['province'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO nacwo_members (nm_number, car_wash_name, registered_business_name, registration_no, cipc, business_bank_account, sars_pin, ownership_type, owner_name, owner_id, contact_number, email, joining_date, physical_address, gps_coordinates, city_township, province) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO nacwo_members (nm_number, car_wash_name, registered_business_name, registration_no, cipc, business_bank_account, sars_pin, ownership, owner_name, owner_id, contact_number, email, joining_date, physical_address, gps_coordinates, city_township, province) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssssssssssssss", $nm_number, $car_wash_name, $registered_business_name, $registration_no, $cipc, $business_bank_account, $sars_pin, $ownership, $owner_name, $owner_id, $contact_number, $email, $joining_date, $physical_address, $gps_coordinates, $city_township, $province);
 
     // Execute the query and check if it was successful
     if ($stmt->execute()) {
+        // Redirect to admin portal
+        header("Location: adminportal.php");
         echo "New record created successfully";
     } else {
         echo "Error: Something went wrong";
@@ -36,8 +38,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Close the statement and connection
     $stmt->close();
     $conn->close();
-
-     // Redirect to admin portal
-     header("Location: adminportal.php");
 }
 ?>
