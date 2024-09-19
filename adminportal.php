@@ -38,8 +38,10 @@ $result = $conn->query($sql);
         </div>
     </header>
     <section class="main-container" id="main-container">
-    <h1>NACWO | Memebership Details</h1>
+    <div class="background-overlay"></div>
+    
     <div class = "container">
+    <h1>NACWO | Memebership Details</h1>
         <div class="buttons">
             <button id="update">Update</button>
             <button id="delete">Delete</button>
