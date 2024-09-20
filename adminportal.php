@@ -98,7 +98,7 @@ $result = $conn->query($sql);
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="17">No records found</td>
+                        <td colspan="18">No records found</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
